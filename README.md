@@ -40,5 +40,3 @@ yarn add -D tailwindcss postcss autoprefixer
 ## Install Prettier
 
 yarn add --dev prettier
-
-
