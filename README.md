@@ -37,10 +37,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 yarn add -D tailwindcss postcss autoprefixer
 
-# Install Prettier
+## Install Prettier
 
 yarn add --dev prettier
 
-# To connect your ESLint configuration with Prettier, you need to install a couple of additional packages and configure ESLint to use the Prettier rules. Here's how you can do it:
 
-yarn add --dev eslint-config-prettier eslint-plugin-prettier
