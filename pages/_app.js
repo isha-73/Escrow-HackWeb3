@@ -1,15 +1,13 @@
 import '../styles/globals.css';
-import { ThirdwebWeb3Provider } from "@3rdweb/hooks";
+import { ThirdwebWeb3Provider } from '@3rdweb/hooks';
 
-import "regenerator-runtime/runtime";
-
-
+import 'regenerator-runtime/runtime';
 
 export default function App({ Component, pageProps }) {
   const supportedChainIds = [80001, 4];
 
   const connectors = {
-    injected: {},
+    injected: {}
   };
   return (
     <>

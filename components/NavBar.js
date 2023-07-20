@@ -1,15 +1,15 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useWeb3 } from "@3rdweb/hooks";
+import { useWeb3 } from '@3rdweb/hooks';
 
 const Navbar = (props) => {
-  const { connectWallet, address, error } = useWeb3();
+  const { connectWallet, address } = useWeb3();
 
   const router = useRouter();
 
   const handleConnect = async () => {
     try {
-      await connectWallet("injected");
+      await connectWallet('injected');
       console.log(address);
       // Assuming successful connection, navigate to the /dashboard page
       router.push('/dashboard');
@@ -28,8 +28,11 @@ const Navbar = (props) => {
         </div>
         <div className="space-x-4">
           <button
-            className={`text-white hover:text-gray-300 bg-gradient-to-r from-purple-500 to-blue-500 bg-origin-border py-2 px-4 rounded-md neon-text ${props.disabled ? 'group-disabled:opacity-10 bg-gradient-to-r from-purple-300 to-blue-300 text-gray-300 group-disabled:pointer-events-none' : 'group'
-              }`}
+            className={`text-white hover:text-gray-300 bg-gradient-to-r from-purple-500 to-blue-500 bg-origin-border py-2 px-4 rounded-md neon-text ${
+              props.disabled
+                ? 'group-disabled:opacity-10 bg-gradient-to-r from-purple-300 to-blue-300 text-gray-300 group-disabled:pointer-events-none'
+                : 'group'
+            }`}
             onClick={handleConnect}
             disabled={props.disabled}
           >
