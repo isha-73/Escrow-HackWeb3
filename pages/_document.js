@@ -5,7 +5,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <link rel="icon" href="/favicon.ico" />
-
+        <title>Web Escrow</title>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           rel="stylesheet"
