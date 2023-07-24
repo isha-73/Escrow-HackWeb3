@@ -24,7 +24,7 @@ export default function Home() {
           <Testimonials />
         </div>
       </main>
-      <footer className="my-0">
+      <footer>
         <Footer />
       </footer>
     </>
