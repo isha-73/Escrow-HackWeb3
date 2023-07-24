@@ -16,12 +16,6 @@ const Navbar = (props) => {
     if (typeof window != 'undefined' && typeof window.ethereum != 'undefined') {
       try {
         /* MetaMask is installed */
-        if (window.ethereum._metamask.isUnlocked()) {
-          // Account access request is already in progress, don't make a new request
-          alert('Account access request is already in progress');
-
-          return;
-        }
 
         const accounts = await window.ethereum.request({
           method: 'eth_requestAccounts'
