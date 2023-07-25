@@ -1,42 +1,75 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1>Secure Escrow </h1>
+<!-- <p align="center">
+  <img src="/public/logo.png" alt="Image" width="40" height="40">
+</p> -->
 
-## Getting Started
+<h2>Table of Contents 📑</h2>
 
-First, run the development server:
+- [Introduction](#introduction)
+- [Tech Stack](#tech-stack)
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+<h2>Introduction 🚀</h2>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Secure Escrow is a decentralized application (dApp) built on Ethereum blockchain using Solidity smart contracts. It provides a secure and trustless escrow service, facilitating secure transactions between buyers and sellers without the need for intermediaries.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+<h2>What is Escrow ❓❔</h2>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Escrow is a financial arrangement used to safeguard funds or assets during a transaction.
+- It involves a neutral third party acting as an intermediary between the buyer and seller.
+- The third party holds the funds or assets until all conditions of the transaction are met.
+- Escrow is commonly used in real estate transactions, business deals, and online purchases.
+- It helps protect both parties from fraud and ensures the transaction is completed fairly.
 
-## Learn More
+<h2>Tech Stack 🛠️</h2>
+<p>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg" width="36" height="36" alt="JavaScript" /></a>
+  <a href="https://reactjs.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/react-colored.svg" width="36" height="36" alt="React" /></a>
+  <a href="https://nextjs.org/docs" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/nextjs-colored.svg" width="36" height="36" alt="Next.js" /></a>
+  <a><img src="https://th.bing.com/th/id/R.114016a2cca951580c4d5d1aab9655ae?rik=FDccsPfv5tyutg&pid=ImgRaw&r=0" width="36" height="36" alt="Solidity"/></a>
+  <a> <img src="https://th.bing.com/th/id/OIP.7K_j3KOjm-bDuIGxZb5T_QHaE5?w=258&h=180&c=7&r=0&o=5&pid=1.7" width="40" height="36" alt="Chakra"/></a>
+</p>
 
-To learn more about Next.js, take a look at the following resources:
+- **Next.js**: A React framework for building server-side rendered (SSR) and statically generated web applications.
+- **Chakra UI**: A simple and elegant UI component library for React applications.
+- **JavaScript**: The primary programming language used for the frontend development.
+- **Solidity**: A smart contract programming language used for developing Ethereum-based smart contracts.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<h2>Project Overview 📝</h2>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+The Secure Escrow project aims to create a transparent and secure platform for facilitating transactions, particularly useful for e-commerce, freelancing, and digital goods exchanges. It allows users to create escrow contracts, hold funds in a secure manner, and ensure successful delivery before releasing the funds to the seller.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<h2>Features ✨</h2>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Create Escrow Contract**: Users can create new escrow contracts with specific terms and conditions for the transaction.
+- **Secure Fund Holding**: Funds are held securely in the escrow contract until the transaction is successfully completed.
+- **Transaction Status Tracking**: Real-time tracking of transaction status (Open, Pending, Delivery, Confirmed, Disputed).
+- **Buyer Protection**: Buyer can request refunds and dispute the transaction in case of issues.
+- **Escrow Fee**: The platform charges a nominal escrow fee for its services to maintain and improve the system.
+- **Decentralized and Trustless**: Transactions are performed on the Ethereum blockchain, eliminating the need for third-party intermediaries.
 
-## Install Tailwind CSS
+<h2>Installation 🛠️</h2>
 
-yarn add -D tailwindcss postcss autoprefixer
+Follow these steps to set up the project locally:
 
-## Install Prettier
+1. Clone the repository: `git clone <repository-url>`
+2. Change into the project directory 
+3. Install dependencies: `npm install`
 
-yarn add --dev prettier
+<h2>Usage 🚀</h2>
+
+1. Start the development server: `npm run dev`
+2. Access the application at `http://localhost:3000`
+
+<h2>License 📄</h2>
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+Secure Escrow provides a secure and reliable platform for conducting transactions with enhanced trust and confidence. By leveraging blockchain technology, it empowers users to engage in secure transactions without relying on traditional intermediaries. Whether it's a freelance payment or an e-commerce purchase, Secure Escrow ensures a seamless and trustworthy transaction experience. 💪
