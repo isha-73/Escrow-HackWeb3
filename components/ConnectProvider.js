@@ -7,8 +7,8 @@ const CONTRACT_ADDRESS = "0x6d26449C2D1A0578E0a983a97FFE685018174ab1";
 const contractABI = abi.abi;
 
 export const useConnect = () => {
-    return useContext(ConnectContext);
-}
+  return useContext(ConnectContext);
+};
 
 export default function ConnectProvider({ children }) {
     const [ ethereum, setEthereum ] = useState(null);
@@ -48,29 +48,6 @@ export default function ConnectProvider({ children }) {
         }
     };
 
-    async function getContract() {
-        if (ethereum && walletAddress) {
-            try {
-                const provider = new ethers.BrowserProvider(ethereum);
-                const signer = await provider.getSigner();
-                const contract = new ethers.Contract(CONTRACT_ADDRESS, contractABI, signer);
-                setContract(contract);
-            } catch (err) {
-                setError(err.message);
-                console.log(err);
-            }
-        }
-    };
-
-    useEffect(() => {
-        getContract();
-    }, [ walletAddress ]);
-
-    useEffect(() => {
-        if (window.ethereum) {
-            setEthereum(window.ethereum);
-        }
-    }, []);
 
     useEffect(() => {
         if (ethereum) {

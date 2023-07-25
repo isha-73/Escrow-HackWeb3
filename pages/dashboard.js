@@ -1,4 +1,12 @@
-import { Box, Container, Button, Text, Flex, Heading, Link } from "@chakra-ui/react";
+import {
+  Box,
+  Container,
+  Button,
+  Text,
+  Flex,
+  Heading,
+  Link,
+} from "@chakra-ui/react";
 import {
   Modal,
   ModalOverlay,
@@ -42,18 +50,25 @@ export default function Dashboard() {
   return (
     <Box background={"black"} minH={"100vh"}>
       <Container maxW="container.xl" py={6}>
-        <Flex width={"100%"} background={"gray.900"} px={8} py={6} rounded={"full"} justifyContent={"space-between"} alignItems={"center"} flexDirection={"row"}>
-        <Heading color={"white"}>Secure Escrow</Heading>
-        <Flex alignItems={"end"} flexDirection={"column"}>
-          <Link color={"gray.400"}>Welcome</Link>
-          <Text color={"gray.200"}>{walletAddress}</Text>
+        <Flex
+          width={"100%"} background={"gray.900"} px={8}
+          py={6} rounded={"full"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+          flexDirection={"row"}
+        >
+          <Heading color={"white"}>Secure Escrow</Heading>
+          <Flex alignItems={"end"} flexDirection={"column"}>
+            <Link color={"gray.400"}>Welcome</Link>
+            <Text color={"gray.200"}>{walletAddress}</Text>
           {/* <Text color={"gray.200"}>{contract}</Text> */}
           {/* <Text color={"gray.200"}>{error}</Text> */}
-        </Flex>
+          </Flex>
         </Flex>
 
         <Flex px={8} my={6} justifyContent={"space-between"} alignItems={"center"}>
-          <Text fontSize={"3xl"} fontWeight={"bold"} color={"white"}>My Escrows</Text>
+          <Text fontSize={"3xl"} fontWeight={"bold"} color={"white"}>
+          My Escrows</Text>
           <Button onClick={onOpen}>New Escrow</Button>
           <Modal
         initialFocusRef={initialRef}
@@ -72,7 +87,8 @@ export default function Dashboard() {
             <FormControl>
               <FormLabel>Amount</FormLabel>
               <Input ref={amount} placeholder='Pay Matic for this purpose' />
-              <Text fontSize={"sm"} color={"gray.400"}>If purpose not fulfilled, amount will be reverted back in 7 days.</Text>
+              <Text fontSize={"sm"} color={"gray.400"}>If purpose not fulfilled, amount will be reverted back in 7 days.
+        </Text>
             </FormControl>
           </ModalBody>
 
@@ -89,4 +105,4 @@ export default function Dashboard() {
       </Container>
     </Box>
   );
-};
+}
