@@ -3,7 +3,7 @@
   <img src="/public/logo.png" alt="Image" width="40" height="40">
 </p>
 
-<h2 align="center">Table of Contents 📑</h2>
+<h2>Table of Contents 📑</h2>
 
 - [Introduction](#introduction)
 - [Tech Stack](#tech-stack)
@@ -13,11 +13,11 @@
 - [Usage](#usage)
 - [License](#license)
 
-<h2 align="center">Introduction 🚀</h2>
+<h2>Introduction 🚀</h2>
 
 Secure Escrow is a decentralized application (dApp) built on Ethereum blockchain using Solidity smart contracts. It provides a secure and trustless escrow service, facilitating secure transactions between buyers and sellers without the need for intermediaries.
 
-<h2 align="center">What is Escrow ❓❔</h2>
+<h2>What is Escrow ❓❔</h2>
 
 - Escrow is a financial arrangement used to safeguard funds or assets during a transaction.
 - It involves a neutral third party acting as an intermediary between the buyer and seller.
@@ -25,8 +25,8 @@ Secure Escrow is a decentralized application (dApp) built on Ethereum blockchain
 - Escrow is commonly used in real estate transactions, business deals, and online purchases.
 - It helps protect both parties from fraud and ensures the transaction is completed fairly.
 
-<h2 align="center">Tech Stack 🛠️</h2>
-<p align="center">
+<h2>Tech Stack 🛠️</h2>
+<p>
   <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg" width="36" height="36" alt="JavaScript" /></a>
   <a href="https://reactjs.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/react-colored.svg" width="36" height="36" alt="React" /></a>
   <a href="https://nextjs.org/docs" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/nextjs-colored.svg" width="36" height="36" alt="Next.js" /></a>
@@ -39,12 +39,12 @@ Secure Escrow is a decentralized application (dApp) built on Ethereum blockchain
 - **JavaScript**: The primary programming language used for the frontend development.
 - **Solidity**: A smart contract programming language used for developing Ethereum-based smart contracts.
 
-<h2 align="center">Project Overview 📝</h2>
+<h2>Project Overview 📝</h2>
 
 
 The Secure Escrow project aims to create a transparent and secure platform for facilitating transactions, particularly useful for e-commerce, freelancing, and digital goods exchanges. It allows users to create escrow contracts, hold funds in a secure manner, and ensure successful delivery before releasing the funds to the seller.
 
-<h2 align="center">Features ✨</h2>
+<h2>Features ✨</h2>
 
 - **Create Escrow Contract**: Users can create new escrow contracts with specific terms and conditions for the transaction.
 - **Secure Fund Holding**: Funds are held securely in the escrow contract until the transaction is successfully completed.
@@ -53,7 +53,7 @@ The Secure Escrow project aims to create a transparent and secure platform for f
 - **Escrow Fee**: The platform charges a nominal escrow fee for its services to maintain and improve the system.
 - **Decentralized and Trustless**: Transactions are performed on the Ethereum blockchain, eliminating the need for third-party intermediaries.
 
-<h2 align="center">Installation 🛠️</h2>
+<h2>Installation 🛠️</h2>
 
 Follow these steps to set up the project locally:
 
@@ -61,12 +61,12 @@ Follow these steps to set up the project locally:
 2. Change into the project directory 
 3. Install dependencies: `npm install`
 
-<h2 align="center">Usage 🚀</h2>
+<h2>Usage 🚀</h2>
 
 1. Start the development server: `npm run dev`
 2. Access the application at `http://localhost:3000`
 
-<h2 align="center">License 📄</h2>
+<h2>License 📄</h2>
 
 This project is licensed under the [MIT License](LICENSE).
 
