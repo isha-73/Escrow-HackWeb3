@@ -1,7 +1,4 @@
-# Secure Escrow Project
-
-
-<img src="/public/logo.png" alt="Image" width="40" height="40">
+# Secure Escrow <img src="/public/logo.png" alt="Image" width="40" height="40">
 
 
 ## Table of Contents
