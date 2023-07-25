@@ -1,7 +1,10 @@
 <h1>Secure Escrow </h1>
-<!-- <p align="center">
+<p align="center">
   <img src="/public/logo.png" alt="Image" width="40" height="40">
-</p> -->
+</p>
+
+[Demo Video](https://www.loom.com/share/54090e270a404ff684f69f0deaf87f4a?sid=0b4b3526-d0c9-463a-a1ad-dd82c0d1a7ef)
+[Visit site](https://escrow-hack-web3.vercel.app/)
 
 <h2>Table of Contents 📑</h2>
 
@@ -50,8 +53,6 @@ The Secure Escrow project aims to create a transparent and secure platform for f
 - **Secure Fund Holding**: Funds are held securely in the escrow contract until the transaction is successfully completed.
 - **Transaction Status Tracking**: Real-time tracking of transaction status (Open, Pending, Delivery, Confirmed, Disputed).
 - **Buyer Protection**: Buyer can request refunds and dispute the transaction in case of issues.
-- **Escrow Fee**: The platform charges a nominal escrow fee for its services to maintain and improve the system.
-- **Decentralized and Trustless**: Transactions are performed on the Ethereum blockchain, eliminating the need for third-party intermediaries.
 
 <h2>Installation 🛠️</h2>
 
@@ -59,16 +60,23 @@ Follow these steps to set up the project locally:
 
 1. Clone the repository: `git clone <repository-url>`
 2. Change into the project directory 
-3. Install dependencies: `npm install`
+3. Install dependencies: `yarn`
+
+<h2>Setting Up Contract🛠️</h2>
+
+1. `cd contract`
+2. Install dependencies: `yarn`
+3. Compile and deploy the contract: `npx hardhat run scripts/deploy.js --network localhost`
+4. Change the contract address in `CONTRACT ADDRESS` in `components/ConnectProvider.js` to the address of the deployed contract.
 
 <h2>Usage 🚀</h2>
 
-1. Start the development server: `npm run dev`
+1. Start the development server: `yarn dev`
 2. Access the application at `http://localhost:3000`
 
 <h2>License 📄</h2>
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the MIT License.
 
 ---
 
