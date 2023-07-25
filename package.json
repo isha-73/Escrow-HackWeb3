@@ -10,11 +10,11 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@3rdweb/hooks": "^1.9.2",
     "@chakra-ui/next-js": "^2.1.5",
     "@chakra-ui/react": "^2.8.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "ethers": "^6.6.5",
     "framer-motion": "^10.13.1",
     "next": "13.1.2",
     "react": "18.2.0",

@@ -1,30 +1,26 @@
 import React, { createContext, useEffect, useState, useContext } from "react";
-
-const { ethereum } = typeof window !== "undefined" ? window : {};
+import abi from "./Escrow.json"
+import { ethers } from "ethers";
 
 const ConnectContext = createContext();
+const CONTRACT_ADDRESS = "0x6d26449C2D1A0578E0a983a97FFE685018174ab1";
+const contractABI = abi.abi;
 
 export const useConnect = () => {
     return useContext(ConnectContext);
 }
 
 export default function ConnectProvider({ children }) {
+    const [ ethereum, setEthereum ] = useState(null);
     const [ walletAddress, setWalletAddress ] = useState(null);
     const [ loading, setLoading ] = useState(false);
+    const [ contract, setContract ] = useState(null);
     const [ error, setError ] = useState(null);
-
-    function checkEthereumExists() {
-        if (!ethereum) {
-            setError("Please Install MetaMask.");
-            return false;
-        }
-        return true;
-    };
 
     async function connectWallet() {
         setLoading(true);
         setError("");
-        if (checkEthereumExists()) {
+        if (ethereum) {
             try {
                 const accounts = await ethereum.request({
                     method: "eth_requestAccounts",
@@ -34,6 +30,7 @@ export default function ConnectProvider({ children }) {
                 setLoading(false);
             } catch (err) {
                 setError(err.message);
+                console.log(err);
             }
         }
     };
@@ -51,9 +48,32 @@ export default function ConnectProvider({ children }) {
         }
     };
 
+    async function getContract() {
+        if (ethereum && walletAddress) {
+            try {
+                const provider = new ethers.BrowserProvider(ethereum);
+                const signer = await provider.getSigner();
+                const contract = new ethers.Contract(CONTRACT_ADDRESS, contractABI, signer);
+                setContract(contract);
+            } catch (err) {
+                setError(err.message);
+                console.log(err);
+            }
+        }
+    };
 
     useEffect(() => {
-        if (checkEthereumExists()) {
+        getContract();
+    }, [ walletAddress ]);
+
+    useEffect(() => {
+        if (window.ethereum) {
+            setEthereum(window.ethereum);
+        }
+    }, []);
+
+    useEffect(() => {
+        if (ethereum) {
             ethereum.on("accountsChanged", getConnectedAccounts);
             getConnectedAccounts();
         }
@@ -63,7 +83,7 @@ export default function ConnectProvider({ children }) {
     }, []);
 
 
-    return <ConnectContext.Provider value={{ walletAddress, connectWallet, error, loading }}>
+    return <ConnectContext.Provider value={{ walletAddress, connectWallet, error, loading, ethereum, contract }}>
         {children}
     </ConnectContext.Provider>;
 }
