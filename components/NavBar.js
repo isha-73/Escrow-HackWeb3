@@ -2,6 +2,9 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 // import { useWeb3 } from '@3rdweb/hooks';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
+
+import logo from '../public/logo.png';
 
 const Navbar = (props) => {
   const [walletAddress, setWalletAddress] = useState('');
@@ -66,8 +69,6 @@ const Navbar = (props) => {
   };
   const handleLogin = () => {
     if (walletAddress) {
-      // Perform any additional authentication logic if needed
-
       // After successful authentication, navigate to the dashboard page
       router.push({
         pathname: '/dashboard',
@@ -83,11 +84,8 @@ const Navbar = (props) => {
     <nav className="fixed top-0 left-0 w-full flex sm:flex-wrap justify-center backdrop-blur-sm bg-gray-700 bg-opacity-50 border border-blue-500 border-t-0 border-l-0 border-r-0  shadow-neon-blue ">
       <div className="container flex items-center justify-between p-2 ">
         <div>
-          <Link
-            href="/"
-            className='className="text-white text-3xl font-extrabold tracking-tight neon-text"'
-          >
-            ESCROW
+          <Link href="/">
+            <Image src={logo} alt="Logo" width={100} height={100} />
           </Link>
         </div>
         <div className="space-x-4">

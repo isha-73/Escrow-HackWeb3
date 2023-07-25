@@ -11,7 +11,7 @@ const Dashboard = () => {
   return (
     <>
       <Navbar disabled={props.disabled} />
-      <div className="m-20">
+      <div className="m-20 py-20">
         <div className=" border-blue-500 border rounded shadow-md flex flex-col items-center justify-center p-5 h-80">
           <div>
             <h1>Welcome to the Dashboard</h1>
