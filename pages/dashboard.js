@@ -33,7 +33,7 @@ export default function Dashboard() {
   async function creatEscrow () {
     console.log('Creating escrow...', initialRef.current.value);
     if (ethereum && walletAddress && contract) {
-      const createTxn = await contract.createItem(initialRef.current.value, { value: ethers.parseEther('0.1') });
+      const createTxn = await contract.createItem(initialRef.current.value, { value: ethers.parseEther(amount.current.value) });
       console.log('Create transaction started...', createTxn.hash);
       onClose();
       await createTxn.wait();
