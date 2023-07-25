@@ -1,7 +1,7 @@
-# Secure Escrow 
+# Secure Escrow 💼
 <img src="/public/logo.png" alt="Image" width="40" height="40">
 
-## Table of Contents
+## Table of Contents 📑
 
 - [Introduction](#introduction)
 - [Tech Stack](#tech-stack)
@@ -11,7 +11,7 @@
 - [Usage](#usage)
 - [License](#license)
 
-## Introduction
+## Introduction 🚀
 
 Secure Escrow is a decentralized application (dApp) built on Ethereum blockchain using Solidity smart contracts. It provides a secure and trustless escrow service, facilitating secure transactions between buyers and sellers without the need for intermediaries.
 
@@ -22,7 +22,7 @@ Secure Escrow is a decentralized application (dApp) built on Ethereum blockchain
  - Escrow is commonly used in real estate transactions, business deals, and online purchases.
  - It helps protect both parties from fraud and ensures the transaction is completed fairly.
 
-## Tech Stack
+## Tech Stack 🛠️
 
 - **Next.js**: A React framework for building server-side rendered (SSR) and statically generated web applications.
 - **Chakra UI**: A simple and elegant UI component library for React applications.
@@ -30,13 +30,12 @@ Secure Escrow is a decentralized application (dApp) built on Ethereum blockchain
 - **HTML/CSS**: Standard web technologies for structuring and styling the frontend.
 - **Solidity**: A smart contract programming language used for developing Ethereum-based smart contracts.
 
-## Project Overview
+## Project Overview 📝
 
-![Project Overview](/public/logo.png.png)
 
 The Secure Escrow project aims to create a transparent and secure platform for facilitating transactions, particularly useful for e-commerce, freelancing, and digital goods exchanges. It allows users to create escrow contracts, hold funds in a secure manner, and ensure successful delivery before releasing the funds to the seller.
 
-## Features
+## Features ✨
 
 - **Create Escrow Contract**: Users can create new escrow contracts with specific terms and conditions for the transaction.
 - **Secure Fund Holding**: Funds are held securely in the escrow contract until the transaction is successfully completed.
@@ -45,7 +44,7 @@ The Secure Escrow project aims to create a transparent and secure platform for f
 - **Escrow Fee**: The platform charges a nominal escrow fee for its services to maintain and improve the system.
 - **Decentralized and Trustless**: Transactions are performed on the Ethereum blockchain, eliminating the need for third-party intermediaries.
 
-## Installation
+## Installation 🛠️
 
 Follow these steps to set up the project locally:
 
@@ -53,12 +52,12 @@ Follow these steps to set up the project locally:
 2. Change into the project directory 
 3. Install dependencies: `npm install`
 
-## Usage
+## Usage 🚀
 
 1. Start the development server: `npm run dev`
 2. Access the application at `http://localhost:3000`
 
-## License
+## License 📄
 
 This project is licensed under the [MIT License](LICENSE).
 
