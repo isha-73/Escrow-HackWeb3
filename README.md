@@ -1,7 +1,7 @@
-<h1 align="center">Secure Escrow </h1>
-<p align="center">
+<h1>Secure Escrow </h1>
+<!-- <p align="center">
   <img src="/public/logo.png" alt="Image" width="40" height="40">
-</p>
+</p> -->
 
 <h2>Table of Contents 📑</h2>
 
