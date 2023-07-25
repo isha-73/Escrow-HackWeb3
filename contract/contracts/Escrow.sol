@@ -6,30 +6,19 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 contract Escrow is ReentrancyGuard {
     address public escAcc;
-    uint256 public escBal;
-    uint256 public escAvailBal;
-    uint256 public escFee;
     uint256 public totalItems = 0;
-    uint256 public totalConfirmed = 0;
-    uint256 public totalDisputed = 0;
 
     mapping(uint256 => ItemStruct) private items;
     mapping(address => ItemStruct[]) private itemsOf;
-    mapping(address => mapping(uint256 => bool)) public requested;
     mapping(uint256 => address) public ownerOf;
-    mapping(uint256 => Available) public isAvailable;
 
     enum Status {
         OPEN,
         PENDING,
         DELIVERY,
-        CONFIRMED,
-        DISPUTTED,
-        REFUNDED,
-        WITHDRAWED
+        SETTLED,
+        REFUNDED
     }
-
-    enum Available { NO, YES }
 
     struct ItemStruct {
         uint256 itemId;
@@ -43,18 +32,9 @@ contract Escrow is ReentrancyGuard {
         bool confirmed;
     }
 
-    event Action (
-        uint256 itemId,
-        string actionType,
-        Status status,
-        address indexed executor
-    );
 
-    constructor(uint256 _escFee) {
+    constructor() {
         escAcc = msg.sender;
-        escBal = 0;
-        escAvailBal = 0;
-        escFee = _escFee;
     }
 
     function createItem(
@@ -75,15 +55,7 @@ contract Escrow is ReentrancyGuard {
 
         itemsOf[msg.sender].push(item);
         ownerOf[itemId] = msg.sender;
-        isAvailable[itemId] = Available.YES;
-        escBal += msg.value;
 
-        emit Action (
-            itemId,
-            "ITEM CREATED",
-            Status.OPEN,
-            msg.sender
-        );
         return true;
     }
 
@@ -98,54 +70,14 @@ contract Escrow is ReentrancyGuard {
         }
     }
 
-    function getItem(uint256 itemId)
-        external
-        view
-        returns (ItemStruct memory) {
-        return items[itemId];
-    }
-
-    function myItems()
-        external
-        view
-        returns (ItemStruct[] memory) {
-        return itemsOf[msg.sender];
-    }
-
-    function requestItem(uint256 itemId) external returns (bool) {
-        require(msg.sender != ownerOf[itemId], "Owner not allowed");
-        require(isAvailable[itemId] == Available.YES, "Item not available");
-
-        requested[msg.sender][itemId] = true;
-
-        emit Action (
-            itemId,
-            "REQUESTED",
-            Status.OPEN,
-            msg.sender
-        );
-
-        return true;
-    }
-
-    function approveRequest(
+    function provideItem(
         uint256 itemId,
         address provider
     ) external returns (bool) {
-        require(msg.sender == ownerOf[itemId], "Only owner allowed");
-        require(isAvailable[itemId] == Available.YES, "Item not available");
-        require(requested[provider][itemId], "Provider not on the list");
+        require(msg.sender != ownerOf[itemId], "Owner not allowed");
 
-        isAvailable[itemId] == Available.NO;
         items[itemId].status = Status.PENDING;
         items[itemId].provider = provider;
-
-        emit Action (
-            itemId,
-            "APPROVED",
-            Status.PENDING,
-            msg.sender
-        );
 
         return true;
     }
@@ -158,13 +90,6 @@ contract Escrow is ReentrancyGuard {
         items[itemId].provided = true;
         items[itemId].status = Status.DELIVERY;
 
-        emit Action (
-            itemId,
-            "DELIVERY INTIATED",
-            Status.DELIVERY,
-            msg.sender
-        );
-
         return true;
     }
 
@@ -172,68 +97,18 @@ contract Escrow is ReentrancyGuard {
         uint256 itemId,
         bool provided
     ) external returns (bool) {
-        require(msg.sender == ownerOf[itemId], "Only owner allowed");
+        require(msg.sender == items[itemId].owner, "Only owner allowed");
         require(items[itemId].provided, "Service not provided");
         require(items[itemId].status != Status.REFUNDED, "Already refunded, create a new Item");
 
         if(provided) {
-            uint256 fee = (items[itemId].amount * escFee) / 100;
-            payTo(items[itemId].provider, (items[itemId].amount - fee));
-            escBal -= items[itemId].amount;
-            escAvailBal += fee;
-
             items[itemId].confirmed = true;
-            items[itemId].status = Status.CONFIRMED;
-            totalConfirmed++;
+            payTo(items[itemId].provider, items[itemId].amount);
+            items[itemId].status = Status.SETTLED;
         }else {
-           items[itemId].status = Status.DISPUTTED; 
+            payTo(items[itemId].owner, items[itemId].amount);
+            items[itemId].status = Status.REFUNDED; 
         }
-
-        emit Action (
-            itemId,
-            "DISPUTTED",
-            Status.DISPUTTED,
-            msg.sender
-        );
-
-        return true;
-    }
-
-    function refundItem(uint256 itemId) external returns (bool) {
-        require(msg.sender == escAcc, "Only Escrow allowed");
-        require(!items[itemId].confirmed, "Service already provided");
-
-        payTo(items[itemId].owner, items[itemId].amount);
-        escBal -= items[itemId].amount;
-        items[itemId].status = Status.REFUNDED;
-        totalDisputed++;
-
-        emit Action (
-            itemId,
-            "REFUNDED",
-            Status.REFUNDED,
-            msg.sender
-        );
-
-        return true;
-    }
-
-    function withdrawFund(
-        address to,
-        uint256 amount
-    ) external returns (bool) {
-        require(msg.sender == escAcc, "Only Escrow allowed");
-        require(amount > 0 ether && amount <= escAvailBal, "Zero withdrawal not allowed");
-
-        payTo(to, amount);
-        escAvailBal -= amount;
-
-        emit Action (
-            block.timestamp,
-            "WITHDRAWED",
-            Status.WITHDRAWED,
-            msg.sender
-        );
 
         return true;
     }

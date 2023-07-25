@@ -4,8 +4,8 @@ import { useEffect } from "react";
 import Router from "next/router";
 
 export default function Main() {
-  const { connectWallet, loading, walletAddress } = useConnect();
-
+  const { connectWallet, loading, walletAddress, setLoading } = useConnect();
+  setLoading(false);
   useEffect(() => {
     if (walletAddress) {
       Router.push("/dashboard");

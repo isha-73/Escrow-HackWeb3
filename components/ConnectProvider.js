@@ -3,7 +3,7 @@ import abi from "./Escrow.json"
 import { ethers } from "ethers";
 
 const ConnectContext = createContext();
-const CONTRACT_ADDRESS = "0x6d26449C2D1A0578E0a983a97FFE685018174ab1";
+const CONTRACT_ADDRESS = "0xea3e1D27A82DC53a960741485b16F9893Ee3b6f1";
 const contractABI = abi.abi;
 
 export const useConnect = () => {
@@ -12,8 +12,8 @@ export const useConnect = () => {
 
 export default function ConnectProvider({ children }) {
     const [ ethereum, setEthereum ] = useState(null);
-    const [ walletAddress, setWalletAddress ] = useState(null);
-    const [ loading, setLoading ] = useState(false);
+    const [ walletAddress, setWalletAddress ] = useState("");
+    const [ loading, setLoading ] = useState(true);
     const [ contract, setContract ] = useState(null);
     const [ error, setError ] = useState(null);
 
@@ -35,19 +35,6 @@ export default function ConnectProvider({ children }) {
         }
     };
 
-    async function getConnectedAccounts() {
-        setError("");
-        try {
-            const accounts = await ethereum.request({
-                method: "eth_accounts",
-            });
-            console.log(accounts);
-            setWalletAddress(accounts[ 0 ]);
-        } catch (err) {
-            setError(err.message);
-        }
-    };
-
     async function getContract() {
         if (ethereum && walletAddress) {
             try {
@@ -55,6 +42,7 @@ export default function ConnectProvider({ children }) {
                 const signer = await provider.getSigner();
                 const contract = new ethers.Contract(CONTRACT_ADDRESS, contractABI, signer);
                 setContract(contract);
+                setLoading(false);
             } catch (err) {
                 setError(err.message);
                 console.log(err);
@@ -72,18 +60,8 @@ export default function ConnectProvider({ children }) {
         }
     }, []);
 
-    useEffect(() => {
-        if (ethereum) {
-            ethereum.on("accountsChanged", getConnectedAccounts);
-            getConnectedAccounts();
-        }
-        return () => {
-            ethereum.removeListener("accountsChanged", getConnectedAccounts);
-        };
-    }, []);
 
-
-    return <ConnectContext.Provider value={{ walletAddress, connectWallet, error, loading, ethereum, contract }}>
+    return <ConnectContext.Provider value={{ walletAddress, connectWallet, error, loading, setLoading, ethereum, contract }}>
         {children}
     </ConnectContext.Provider>;
 }
