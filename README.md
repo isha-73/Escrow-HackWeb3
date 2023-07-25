@@ -1,14 +1,13 @@
 <h1>Secure Escrow </h1>
-<p align="center">
-  <img src="/public/logo.png" alt="Image" width="40" height="40">
-</p>
 
 [Demo Video](https://www.loom.com/share/54090e270a404ff684f69f0deaf87f4a?sid=0b4b3526-d0c9-463a-a1ad-dd82c0d1a7ef)
 
 [Visit site](https://escrow-hack-web3.vercel.app/)
 
 Smart Contract Deployed on Polygon Mumbai Testnet
+
 Contract Address - 0xea3e1D27A82DC53a960741485b16F9893Ee3b6f1
+
 [View on Polygonscan](https://mumbai.polygonscan.com/address/0xea3e1D27A82DC53a960741485b16F9893Ee3b6f1#internaltx)
 
 <h2>Table of Contents 📑</h2>
