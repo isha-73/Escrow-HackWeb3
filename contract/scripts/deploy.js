@@ -1,13 +1,13 @@
 // scripts/deploy.js
-const hre = require('hardhat');
+const hre = require("hardhat");
 
 const main = async () => {
   const escFee = 100;
 
-  const Escrow = await hre.ethers.deployContract('Escrow', [escFee]);
+  const Escrow = await hre.ethers.deployContract("Escrow", [escFee]);
   await Escrow.waitForDeployment();
 
-  console.log('Escrow Contract address: ', await Escrow.getAddress());
+  console.log("Escrow Contract address: ", await Escrow.getAddress());
 };
 
 const runMain = async () => {
