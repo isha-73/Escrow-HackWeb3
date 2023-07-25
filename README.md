@@ -1,6 +1,8 @@
 # Secure Escrow Project
 
-![Secure Escrow](/public/logo.png)
+
+<img src="/public/logo.png" alt="Image" width="30" height="20">
+
 
 ## Table of Contents
 
